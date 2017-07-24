@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.iteminventoryapp.CatalogActivity">
+
+    <item
+        android:id="@+id/action_add_dummy_data"
+        android:title="@string/action_insert_dummy_data"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/delete_all_items"
+        android:title="@string/action_delete_all_entries"
+        app:showAsAction="never" />
+</menu>

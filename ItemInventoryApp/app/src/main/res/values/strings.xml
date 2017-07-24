@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Product Inventory App</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Label for overflow menu option that inserts fake pet data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all pet data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Products</string>
+
+    <!-- Title for the activity to add a new pet [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_pet">Add an item</string>
+
+    <!-- Label for editor menu option to save pet and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu option that deletes the current pet [CHAR LIMIT=20] -->
+    <string name="action_delete">Discard</string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Label for measurement information in the editor [CHAR LIMIT=30] -->
+    <string name="category_measurement">Measurement</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_product_name">Product</string>
+
+    <!-- Text hint for breed field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_product_price">Product price in EUR</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_product_category">Category</string>
+
+    <!-- Toast message in editor when new pet has been successfully inserted [CHAR LIMIT=NONE] -->
+    <string name="editor_insert_product_successful">Product saved</string>
+
+    <!-- Toast message in editor when new pet has failed to be inserted [CHAR LIMIT=NONE] -->
+    <string name="editor_insert_product_failed">Error with saving product</string>
+
+    <string name="hint_product_quantity">Product quantity</string>
+    <string name="decrement_toast">Quantity must be 0 or more.</string>
+    <string name="increment_toast">Quantity can\'t be more than 100.</string>
+    <string name="no_inventory">No inventory</string>
+    <string name="in_stock">In Stock:</string>
+    <string name="out_of_stock">Out of Stock</string>
+    <string name="subtitle">Add a product by clicking button.</string>
+    <string name="order_product">Order Product</string>
+
+    <string name="spinner_not_given">Not Given</string>
+    <string name="spinner_dolls">Dolls</string>
+    <string name="spinner_cars">Cars</string>
+    <string name="spinner_books">Books</string>
+
+    <string name="sale_button">Sale</string>
+    <string name="no_items">No product on stock.</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="dummy_picture_uri">android.resource://com.example.myinventoryapp/drawable-mdpi/doll</string>
+    <string name="delete_all_items_failure">Error with deleting all items</string>
+    <string name="delete_all_items_successful">Items successfully deleted</string>
+    <string name="editor_activity_title_add_item">Add product</string>
+    <string name="editor_activity_title_edit_product">Edit product</string>
+    <string name="error_save_item">Error with saving the item</string>
+    <string name="error_update_item">Error with product update</string>
+    <string name="updated_item">"Product updated"</string>
+    <string name="keep_editing">Cancel</string>
+    <string name="discard_changes_msg">Discard changes and quit editing?</string>
+    <string name="editor_delete_item_failed">Error with product deleting</string>
+    <string name="editor_delete_item_successful">Product deleted</string>
+    <string name="email_subject">Order</string>
+    <string name="email_message">Hello, I would like to order following product:</string>
+    <string name="toast_require_price">Add price</string>
+    <string name="delete_message">Discard your changes?</string>
+    <string name="delete_all_items">Would you like delete all items?</string>
+    <string name="toast_required_image">Image required</string>
+    <string name="editor_insert_failed">Product insert failed</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="toast_require_supplier">Add supplier name</string>
+    <string name="price_example">15.00</string>
+    <string name="currency">Price (EUR)</string>
+    <string name="toast_require_name">Add product name</string>
+    <string name="supplier">Supplier</string>
+    <string name="supplier_example">Dracik</string>
+    <string name="hint_supplier">Supplier name</string>
+    <string name="title_activity_edit">EditActivity</string>
+    <string name="toast_blank_fiels">Please, enter product details. All fields and image are required.</string>
+    <string name="example_name">Toy_Mia</string>
+    <string name="example_pieces">20</string>
+    <string name="action_continue">Continue</string>
+    <string name="_0">0</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+</resources>

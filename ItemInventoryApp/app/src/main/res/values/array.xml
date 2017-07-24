@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_type_options">
+        <item>@string/spinner_not_given</item>
+        <item>@string/spinner_dolls</item>
+        <item>@string/spinner_cars</item>
+        <item>@string/spinner_books</item>
+
+    </string-array>
+
+</resources>
