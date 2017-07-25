@@ -29,6 +29,7 @@ import static com.example.android.iteminventoryapp.data.DataContract.ProductEntr
 import static com.example.android.iteminventoryapp.data.DataContract.ProductEntry.COLUMN_PRODUCT_QUANTITY;
 import static com.example.android.iteminventoryapp.data.DataContract.ProductEntry.CONTENT_URI;
 import static com.example.android.iteminventoryapp.data.DataContract.ProductEntry._ID;
+import static com.example.android.iteminventoryapp.data.DataProvider.LOG_TAG;
 
 public class CatalogActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -143,9 +144,19 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         Uri imgUri = Uri.parse("android.resource://" + CONTENT_AUTHORITY + "/" + R.drawable.doll);
         values.put(COLUMN_PRODUCT_IMAGE, imgUri.toString());
         Uri newUri = getContentResolver().insert(CONTENT_URI, values);
+        Log.v(LOG_TAG, newUri.toString());
     }
 
-    public void onSaleBtnClick(long id, int quantity) {
+    public void onListItemClick(long id) {
+        Intent intent = new Intent(CatalogActivity.this, EditActivity.class);
+
+        Uri currentItemUri = ContentUris.withAppendedId(CONTENT_URI, id);
+        intent.setData(currentItemUri);
+
+        startActivity(intent);
+    }
+
+    public void onSaleButtonClick(long id, int quantity) {
         Uri currentItemUri = ContentUris.withAppendedId(CONTENT_URI, id);
 
         int newQuantity = quantity > 0 ? quantity - 1 : 0;
@@ -154,12 +165,12 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         values.put(COLUMN_PRODUCT_QUANTITY, newQuantity);
 
         int rowsAffected = getContentResolver().update(currentItemUri, values, null, null);
-        if (rowsAffected == 0) {
+        if (quantity == newQuantity) {
             // If no rows were affected, then there was an error with the update.
-            Toast.makeText(this, getString(R.string.error_update_item), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.out_of_stock), Toast.LENGTH_SHORT).show();
         } else if (quantity != newQuantity) {
             // Otherwise, the update was successful and we can display a toast.
-            Toast.makeText(this, getString(R.string.updated_item) + id,
+            Toast.makeText(this, getString(R.string.updated_item),
                     Toast.LENGTH_SHORT).show();
         }
     }

@@ -27,6 +27,8 @@ import static com.example.android.iteminventoryapp.data.DataContract.ProductEntr
 
 public class DataProvider extends ContentProvider {
 
+    public static final String LOG_TAG = DataProvider.class.getSimpleName();
+
     private static final int ITEMS = 100;
     private static final int ITEM_ID = 101;
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -119,7 +121,7 @@ public class DataProvider extends ContentProvider {
         }
 
         Integer quantity = values.getAsInteger(COLUMN_PRODUCT_QUANTITY);
-        if (quantity != null && quantity < 0) {
+        if (quantity == null || quantity < 0) {
             throw new IllegalArgumentException("Product requires valid quantity");
         }
 
@@ -201,12 +203,11 @@ public class DataProvider extends ContentProvider {
             }
         }
 
-        if (values.containsKey(COLUMN_PRODUCT_QUANTITY)) {
-            Integer quantity = values.getAsInteger(COLUMN_PRODUCT_QUANTITY);
-            if (quantity != null && quantity < 0) {
-                throw new IllegalArgumentException("Product requires valid quantity");
-            }
+        Integer quantity = values.getAsInteger(COLUMN_PRODUCT_QUANTITY);
+        if (quantity == null || quantity < 0) {
+            throw new IllegalArgumentException("Product requires valid quantity");
         }
+
 
         if (values.containsKey(COLUMN_PRODUCT_PRICE)) {
             Integer price = values.getAsInteger(COLUMN_PRODUCT_PRICE);
@@ -216,7 +217,7 @@ public class DataProvider extends ContentProvider {
         }
 
         if (values.containsKey(COLUMN_PRODUCT_IMAGE)) {
-            byte[] productImage = values.getAsByteArray(COLUMN_PRODUCT_IMAGE);
+            String productImage = values.getAsString(COLUMN_PRODUCT_IMAGE);
             if (productImage == null) {
                 throw new IllegalArgumentException("Product requires an image");
             }

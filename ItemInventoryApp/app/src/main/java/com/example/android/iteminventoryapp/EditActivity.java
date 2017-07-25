@@ -42,7 +42,6 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final int PRODUCT_LOADER = 0;
     private static final int MAX_PRODUCT_QUANTITY = 100;
     private static final int MIN_PRODUCT_QUANTITY = 0;
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
     String quantityString;
     Uri currentItemUri;
     Uri imageUri;
@@ -110,9 +109,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
-        mProductImage.setTag(R.id.tag_real_image_added, false);
-
-        mIncreaseButton.setOnClickListener(new View.OnClickListener() {
+      mIncreaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int quantity = Integer.parseInt(mProductQuantity.getText().toString().trim());
@@ -312,17 +309,6 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         }
     }
 
-    private boolean isValidProduct() {
-        Object realImageAddedTag = mProductImage.getTag(R.id.tag_real_image_added);
-        boolean realImageAdded = (null != realImageAddedTag && (boolean) realImageAddedTag);
-
-        return !TextUtils.isEmpty(mProductName.getText().toString().trim()) &&
-                !TextUtils.isEmpty(mProductPrice.getText().toString().trim()) &&
-                !TextUtils.isEmpty(mProductQuantity.getText().toString().trim()) &&
-                realImageAdded;
-    }
-
-
     private void showToastMessage(int messageResourceId) {
         Toast.makeText(EditActivity.this, getString(messageResourceId),
                 Toast.LENGTH_SHORT).show();
@@ -365,15 +351,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
                 deleteProduct();
             }
         });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // User clicked the "Cancel" button, so dismiss the dialog
-                // and continue editing the product.
-                if (dialog != null) {
-                    dialog.dismiss();
-                }
-            }
-        });
+        builder.setNegativeButton(R.string.cancel, null);
 
         // Create and show the AlertDialog
         AlertDialog alertDialog = builder.create();
